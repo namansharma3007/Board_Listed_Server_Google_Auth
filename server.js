@@ -9,7 +9,7 @@ const app = express();
 
 
 
-app.use(cors());
+// app.use(cors());
 
 
 app.use(
@@ -23,13 +23,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(
-// 	cors({
-// 		origin: process.env.CLIENT_URL,
-// 		methods: "GET,POST,PUT,DELETE",
-// 		credentials: true,
-// 	})
-// );
+app.use(
+	cors({
+		origin: process.env.CLIENT_URL,
+		methods: "GET,POST,PUT,DELETE",
+		credentials: true,
+	})
+);
 
 
 app.use("/auth", authRoute);
