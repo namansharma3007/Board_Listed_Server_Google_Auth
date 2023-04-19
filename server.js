@@ -7,15 +7,15 @@ const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
 const app = express();
 
-
-
-app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-	res.header("Access-Control-Allow-Credentials", "true");
-	next();
-});
+app.use(
+	cors({
+		// origin: "http://localhost:3000",
+		// origin: "https://board-dashboard-listed.netlify.app",
+		origin: "*",
+		methods: "GET,POST,PUT,DELETE",
+		credentials: true,
+	})
+);
 
 
 app.use(
@@ -29,14 +29,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(
-	cors({
-		// origin: "http://localhost:3000",
-		origin: "https://board-dashboard-listed.netlify.app",
-		methods: "GET,POST,PUT,DELETE",
-		credentials: true,
-	})
-);
 
 
 app.use("/auth", authRoute);
