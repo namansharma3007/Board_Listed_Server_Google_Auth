@@ -22,14 +22,14 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(
-// 	cors({
-// 		// origin: "http://localhost:3000",
-// 		origin: "https://board-dashboard-listed.netlify.app",
-// 		methods: "GET,POST,PUT,DELETE",
-// 		credentials: true,
-// 	})
-// );
+app.use(
+	cors({
+		// origin: "http://localhost:3000",
+		origin: "https://board-dashboard-listed.netlify.app",
+		methods: "GET,POST,PUT,DELETE",
+		credentials: true,
+	})
+);
 
 
 app.use("/auth", authRoute);
