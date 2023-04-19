@@ -24,7 +24,8 @@ app.use(passport.session());
 
 app.use(
 	cors({
-		origin: process.env.CLIENT_URL,
+		// origin: "http://localhost:3000",
+		origin: "https://board-dashboard-listed.netlify.app",
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
 	})
