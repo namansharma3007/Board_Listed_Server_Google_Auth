@@ -35,10 +35,10 @@ app.use("/auth", authRoute);
 
 
 app.use((err, req, res, next) => {
-	console.error(err.stack);
+	// console.error(err.stack);
 	res.status(500).json({
 		error: true,
-		message: "Internal server error",
+		message: err.stack,
 	});
 });
 
