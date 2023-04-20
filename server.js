@@ -7,23 +7,15 @@ const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
 const app = express();
 
-// app.use(
-// 	cors({
-// 		// origin: "http://localhost:3000",
-// 		origin: "https://board-dashboard-listed.netlify.app",
-// 		methods: "GET,POST,PUT,DELETE",
-// 		credentials: true,
-// 	})
-// );
-
 app.use(
 	cors({
-		origin: ["https://board-dashboard-listed.netlify.app"],
+		// origin: "http://localhost:3000",
+		origin: "https://board-dashboard-listed.netlify.app",
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
-		allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
 	})
 );
+
 
 app.use(
 	cookieSession({
