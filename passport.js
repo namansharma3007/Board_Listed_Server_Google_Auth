@@ -7,7 +7,8 @@ passport.use(
 			clientID: process.env.CLIENT_ID,
 			clientSecret: process.env.CLIENT_SECRET,
 			callbackURL: "/auth/google/callback",
-			scope: ["profile", "email"],
+			// scope: ["profile", "email"],
+			scope: ["profile", "email", "openid", "https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email"],
 		},
 		function (accessToken, refreshToken, profile, callback) {
 			callback(null, profile);
