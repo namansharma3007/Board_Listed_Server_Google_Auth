@@ -34,5 +34,15 @@ app.use(passport.session());
 app.use("/auth", authRoute);
 
 
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.status(500).json({
+		error: true,
+		message: "Internal server error",
+	});
+});
+
+
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listenting on port ${port}...`));
